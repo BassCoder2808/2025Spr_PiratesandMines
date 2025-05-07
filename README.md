@@ -66,7 +66,8 @@ If only >1 solution matters, modify count_solutions() to bail out as soon as sol
 
 ## Big O Analysis
 
-![img_1.png](profiling/img_1.png)
+![alt text](profiling/part1.png)
+![alt text](profiling/part2.png)
 
 When you instantiate the PuzzleGenerator, you allocate two full n×n arrays (self.grid and self.clue_grid), so construction costs O(n²) time and O(n²) space. Filling the grid randomly and computing every clue via _calculate_clues() also takes exactly one pass over all n² cells; since each cell’s neighbor sum inspects only its four orthogonal neighbors, each is constant-time work, and the entire clue computation remains O(n²). The create_puzzle() method simply wraps these O(n²) steps and then calls generate_valid_solution(), which itself does one random-fill pass (O(n²)), one clue pass (O(n²)), and then hands off to the solver to verify uniqueness.
 
